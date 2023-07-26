@@ -20,7 +20,7 @@ import {
   getParams,
   isEmptyObject,
   flattenArray,
-  supportRef
+  supportRef,
 } from './utils';
 import FieldElemWrapper from './FieldElemWrapper';
 
@@ -208,6 +208,7 @@ function createBaseForm(option = {}, mixins = []) {
           }
           fieldMeta.originalProps = originalProps;
           fieldMeta.ref = fieldElem.ref;
+          // STUDY: seda [getFieldDecorator] 进行 field 的装饰、利用 React.cloneElement 克隆一个新的 fieldElem
           const decoratedFieldElem = React.cloneElement(fieldElem, {
             ...props,
             ...this.fieldsStore.getFieldValuePropValue(fieldMeta),

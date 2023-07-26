@@ -227,6 +227,7 @@ class FieldsStore {
   }
 
   getFieldValue = (name) => {
+    // STUDY: seda [getFieldsValue] 值存在了 fields 中
     const { fields } = this;
     return this.getNestedField(name, (fullName) => this.getValueFromFields(fullName, fields));
   }
