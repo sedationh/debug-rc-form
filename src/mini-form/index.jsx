@@ -54,7 +54,7 @@ export function miniCreateForm(Comp) {
     }
 
     getFieldsValue = () => {
-      return this.state
+      return { ...this.state }
     }
 
     getForm() {
