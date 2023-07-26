@@ -24,12 +24,13 @@ class LoginPage extends React.Component {
         value,
       })
     })
-    // 
+    //
     // 取值 & 使用
     console.log("submit", getFieldsValue())
   }
 
   render() {
+    console.log("sedationh LoginPage render")
     const { getFieldDecorator } = this.props.form
     return (
       <div>

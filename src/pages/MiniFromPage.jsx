@@ -1,5 +1,5 @@
 import React from "react"
-import { createForm } from "rc-form"
+import { miniCreateForm } from "../mini-form/index"
 
 const nameRules = { required: true, message: "请输入姓名！" }
 const passwordRules = { required: true, message: "请输入密码！" }
@@ -32,7 +32,7 @@ class MiniFromPage extends React.Component {
     const { getFieldDecorator } = this.props.form
     return (
       <div>
-        <h3>LoginPage</h3>
+        <h3>MiniFromPage</h3>
 
         {getFieldDecorator("username", { rules: [nameRules] })(<input placeholder="Username" />)}
         <br />
@@ -45,4 +45,4 @@ class MiniFromPage extends React.Component {
   }
 }
 
-export default createForm(MiniFromPage)
+export default miniCreateForm(MiniFromPage)
