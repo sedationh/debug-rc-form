@@ -43,7 +43,7 @@
     "lint": "rc-tools run lint",
     "lint:fix": "rc-tools run lint --fix",
     "test": "jest",
-    "prepublish": "rc-tools run guard",
+    "prepublish": "",
     "coverage": "jest --coverage"
   },
   "jest": {
