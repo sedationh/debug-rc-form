@@ -4,8 +4,8 @@ import MiniFromPage from "./pages/MiniFromPage"
 function App() {
   return (
     <div className="App">
-      {/* <LoginPage /> */}
-      <MiniFromPage />
+      <LoginPage />
+      {/* <MiniFromPage /> */}
     </div>
   )
 }

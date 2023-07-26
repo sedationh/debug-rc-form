@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+要实现的内容
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## createForm
 
-## Available Scripts
+- 接受一个组件，返回一个新的组件 「这里的组件含意是函数」
+- 会把复用逻辑放到 this.props.form 上
 
-In the project directory, you can run:
+## getFieldDecorator
 
-### `npm start`
+- getFieldDecorator(fieldName, options)(reactNode)
+- 返回 ReactNode，在这里规定了 filedName 和 校验规则
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## getFieldsValue
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- getFieldsValue()
+- 返回一个对象，包含了所有通过 getFieldDecorator 注册的字段的 key/value
 
-### `npm test`
+## validateFields
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- validateFields(callback)
 
-### `npm run build`
+```js
+validateFields((error, value) => {
+  console.log({
+    error,
+    value,
+  })
+})
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```json
+{
+  "error": {
+    "password": {
+      "errors": [
+        {
+          "message": "请输入密码！",
+          "field": "password"
+        }
+      ]
+    }
+  },
+  "value": {
+    "username": "componentDidMount username"
+  }
+}
+```
